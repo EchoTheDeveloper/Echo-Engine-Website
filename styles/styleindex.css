@@ -1,5 +1,3 @@
-/* styles/styleindex.css */
-
 body {
   background-color: #65636a;
   color: #f9f6ee;
@@ -7,6 +5,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column; /* Ensures vertical stacking */
   height: 100vh;
   margin: 0;
   text-align: center;
