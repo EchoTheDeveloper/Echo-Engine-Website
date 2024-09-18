@@ -22,3 +22,12 @@ h1 {
 .Links {
   color: #add8e6;
 }
+
+.ImportantInfo {
+  color: red;
+}
+
+.VeryImportantInfo {
+  color: red;
+  background-color: aqua;
+}
