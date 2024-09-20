@@ -1,0 +1,8 @@
+{
+  "id": 1,
+  "devlog-title": "Welcome to the Echo Engine",
+  "version": "0.1.0",
+  "devlog-author": "EchoTheDeveloper",
+  "date": "2023-06-30",
+  "content": "<p>Hey there! Thanks for checking out the Echo Engine!</p><p>This engine uses SFML and ImGUI for the 2D side of things, and you can pick between Vulkan and DirectX12 for the 3D stuff, that also uses ImGUI!</p><p>Right now it's not released to the public. I say 2025 Q4 will be the release of the engine. I know it sounds like a long wait, but if you join the discord you can apply to be a beta tester!</p>"
+}
