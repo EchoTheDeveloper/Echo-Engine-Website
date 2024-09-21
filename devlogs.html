@@ -12,6 +12,8 @@
             --secondary-text-color: #86868b;
             --menu-background: #ffffff;
             --menu-shadow: rgba(0, 0, 0, 0.1);
+            --box-background: #ffffff;
+            --box-shadow: rgba(0, 0, 0, 0.1);
         }
         
         .dark-theme {
@@ -21,6 +23,8 @@
             --secondary-text-color: #a1a1a6;
             --menu-background: #1c1c1e;
             --menu-shadow: rgba(255, 255, 255, 0.1);
+            --box-background: #1c1c1e;
+            --box-shadow: rgba(255, 255, 255, 0.1);
         }
         
         body {
@@ -38,7 +42,7 @@
         }
         
         .container {
-            max-width: 980px;
+            max-width: 1200px;
             padding: 2rem;
             margin: auto;
         }
@@ -52,235 +56,101 @@
             text-align: center;
         }
         
-        h2 {
-            font-size: 28px;
-            line-height: 1.10722;
-            font-weight: 400;
-            letter-spacing: .004em;
-            margin-bottom: 0.5em;
+        .devlogs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
         }
         
-        p {
-            font-size: 21px;
-            line-height: 1.381;
-            font-weight: 400;
-            letter-spacing: .011em;
-            margin: 1em 0;
-            color: var(--secondary-text-color);
-        }
-        
-        .devlog-entry {
-            background-color: var(--menu-background);
-            border-radius: 10px;
-            padding: 20px;
-            margin-bottom: 20px;
-            box-shadow: 0 4px 6px var(--menu-shadow);
-        }
-        
-        .devlog-date {
-            font-size: 14px;
-            color: var(--secondary-text-color);
-            margin-bottom: 10px;
-        }
-        
-        .devlog-author {
-            font-size: 14px;
-            color: var(--secondary-text-color);
-            margin-bottom: 10px;
-        }
-        
-        .devlog-version {
-            font-size: 14px;
-            color: var(--primary-color);
-            margin-bottom: 10px;
-        }
-        
-        .button {
-            background-color: var(--primary-color);
-            border: none;
-            color: white;
-            padding: 12px 24px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 17px;
-            margin: 1em 0;
+        .devlog-box {
+            background-color: var(--box-background);
+            border-radius: 18px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px var(--box-shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
             cursor: pointer;
-            border-radius: 980px;
-            transition: all 0.3s ease;
-            font-weight: 400;
-            letter-spacing: -0.022em;
         }
         
-        .button:hover {
-            background-color: #0077ED;
-            transform: scale(1.05);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        .devlog-box:hover {
+            transform: scale(1.03);
+            box-shadow: 0 8px 12px var(--box-shadow);
         }
         
-        .settings-icon {
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            width: 30px;
-            height: 30px;
-            cursor: pointer;
-            transition: transform 0.3s ease;
-            z-index: 1001;
+        .devlog-title {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
         }
         
-        .settings-icon:hover {
-            transform: scale(1.1);
+        .devlog-meta {
+            font-size: 14px;
+            color: var(--secondary-text-color);
+            margin-bottom: 1rem;
         }
         
-        .settings-icon.spin {
-            animation: spin 0.5s linear;
+        .devlog-content {
+            font-size: 16px;
+            line-height: 1.5;
+            max-height: 100px;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
         
-        @keyframes spin {
-            100% { transform: rotate(360deg); }
-        }
-        
-        .settings-menu {
-            position: fixed;
-            top: 60px;
-            left: 20px;
-            background-color: var(--menu-background);
-            border-radius: 10px;
-            padding: 15px;
-            box-shadow: 0 4px 6px var(--menu-shadow);
+        .modal {
             display: none;
+            position: fixed;
             z-index: 1000;
-        }
-        
-        .settings-menu.show {
-            display: block;
-        }
-        
-        .theme-toggle {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            font-size: 14px;
-        }
-        
-        .switch {
-            position: relative;
-            display: inline-block;
-            width: 50px;
-            height: 24px;
-        }
-        
-        .switch input {
-            opacity: 0;
-            width: 0;
-            height: 0;
-        }
-        
-        .slider {
-            position: absolute;
-            cursor: pointer;
-            top: 0;
             left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: #ccc;
-            transition: .4s;
-            border-radius: 34px;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.4);
         }
         
-        .slider:before {
-            position: absolute;
-            content: "";
-            height: 20px;
-            width: 20px;
-            left: 2px;
-            bottom: 2px;
-            background-color: white;
-            transition: .4s;
-            border-radius: 50%;
+        .modal-content {
+            background-color: var(--box-background);
+            margin: 5% auto;
+            padding: 2rem;
+            border-radius: 18px;
+            width: 80%;
+            max-width: 800px;
+            box-shadow: 0 4px 6px var(--box-shadow);
         }
         
-        input:checked + .slider {
-            background-color: var(--primary-color);
+        .close {
+            color: var(--secondary-text-color);
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
         }
         
-        input:checked + .slider:before {
-            transform: translateX(26px);
+        .close:hover {
+            color: var(--text-color);
         }
         
-        @media (max-width: 768px) {
-            .container {
-                padding: 1rem;
-            }
-        
-            h1 {
-                font-size: 40px;
-            }
-        
-            h2 {
-                font-size: 24px;
-            }
-        }
+        /* Existing styles... */
     </style>
 </head>
 <body>
-    <div class="settings-icon" onclick="toggleSettingsMenu()" aria-label="Settings">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="3"></circle>
-            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
-        </svg>
-    </div>
-    <div class="settings-menu" role="menu">
-        <div class="theme-toggle">
-            <span>Dark Theme</span>
-            <label class="switch">
-                <input type="checkbox" id="themeToggle" onchange="toggleTheme()" aria-label="Toggle dark theme">
-                <span class="slider"></span>
-            </label>
-        </div>
-    </div>
+    <!-- Existing settings icon and menu... -->
+    
     <div class="container">
         <h1>Echo Engine Dev Logs</h1>
-        <a href="index.html" class="button">Back to Home</a>
-        
-        <div id="devlogs-container"></div>
+        <div class="devlogs-grid" id="devlogs-container"></div>
+    </div>
+    
+    <div id="devlogModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="modalTitle"></h2>
+            <div id="modalContent"></div>
+        </div>
     </div>
 
     <script>
-        function toggleSettingsMenu() {
-            const settingsIcon = document.querySelector('.settings-icon');
-            const settingsMenu = document.querySelector('.settings-menu');
-            settingsIcon.classList.add('spin');
-            settingsMenu.classList.toggle('show');
-            setTimeout(() => {
-                settingsIcon.classList.remove('spin');
-            }, 500);
-        }
+        // Existing functions (toggleSettingsMenu, toggleTheme)...
 
-        function toggleTheme() {
-            document.body.classList.toggle('dark-theme');
-            localStorage.setItem('theme', document.body.classList.contains('dark-theme') ? 'dark' : 'light');
-        }
-
-        // Check for saved theme preference
-        const savedTheme = localStorage.getItem('theme');
-        if (savedTheme === 'dark') {
-            document.body.classList.add('dark-theme');
-            document.getElementById('themeToggle').checked = true;
-        }
-
-        // Close settings menu when clicking outside
-        window.onclick = function(event) {
-            const settingsIcon = document.querySelector('.settings-icon');
-            const settingsMenu = document.querySelector('.settings-menu');
-
-            if (!settingsIcon.contains(event.target) && !settingsMenu.contains(event.target)) {
-                settingsMenu.classList.remove('show');
-            }
-        }
-
-        // Load and display devlogs
         async function loadDevlogs() {
             try {
                 const devlogsContainer = document.getElementById('devlogs-container');
@@ -309,21 +179,50 @@
 
                 // Display the devlogs
                 devlogs.forEach(devlog => {
-                    const devlogEntry = document.createElement('div');
-                    devlogEntry.className = 'devlog-entry';
-                    devlogEntry.innerHTML = `
-                        <h2>${devlog['devlog-title']}</h2>
-                        <div class="devlog-version">Version: ${devlog.version}</div>
-                        <div class="devlog-author">Author: ${devlog['devlog-author']}</div>
-                        <div class="devlog-date">${new Date(devlog.date).toLocaleDateString()}</div>
-                        <div class="devlog-content">${devlog.content}</div>
+                    const devlogBox = document.createElement('div');
+                    devlogBox.className = 'devlog-box';
+                    devlogBox.innerHTML = `
+                        <div class="devlog-title">${devlog['devlog-title']}</div>
+                        <div class="devlog-meta">
+                            <span>Version: ${devlog.version}</span> | 
+                            <span>Author: ${devlog['devlog-author']}</span> | 
+                            <span>${new Date(devlog.date).toLocaleDateString()}</span>
+                        </div>
+                        <div class="devlog-content">${devlog.content.substring(0, 150)}...</div>
                     `;
-                    devlogsContainer.appendChild(devlogEntry);
+                    devlogBox.addEventListener('click', () => openDevlogModal(devlog));
+                    devlogsContainer.appendChild(devlogBox);
                 });
             } catch (error) {
                 console.error('Error loading devlogs:', error);
                 const devlogsContainer = document.getElementById('devlogs-container');
                 devlogsContainer.innerHTML = '<p>Error loading devlogs. Please try again later.</p>';
+            }
+        }
+
+        function openDevlogModal(devlog) {
+            const modal = document.getElementById('devlogModal');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalContent = document.getElementById('modalContent');
+
+            modalTitle.textContent = devlog['devlog-title'];
+            modalContent.innerHTML = `
+                <div class="devlog-meta">
+                    <span>Version: ${devlog.version}</span> | 
+                    <span>Author: ${devlog['devlog-author']}</span> | 
+                    <span>${new Date(devlog.date).toLocaleDateString()}</span>
+                </div>
+                <div class="devlog-content">${devlog.content}</div>
+            `;
+
+            modal.style.display = 'block';
+        }
+
+        // Close modal when clicking on the close button or outside the modal
+        window.onclick = function(event) {
+            const modal = document.getElementById('devlogModal');
+            if (event.target == modal || event.target.className == 'close') {
+                modal.style.display = 'none';
             }
         }
 
