@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - Echo Engine</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #f5f5f5;
+            --text-color: #333333;
+            --link-color: #007bff;
+            --header-bg: #ffffff;
+            --footer-bg: #ffffff;
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #121212;
+            --text-color: #e0e0e0;
+            --link-color: #1e90ff;
+            --header-bg: #1e1e1e;
+            --footer-bg: #1e1e1e;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .container {
+            max-width: 50rem;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        header {
+            background-color: var(--header-bg);
+            padding: 2rem 1rem;
+            text-align: center;
+            box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        main {
+            padding: 2rem 1rem;
+        }
+
+        section {
+            margin-bottom: 2rem;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        a {
+            color: var(--link-color);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            background-color: var(--footer-bg);
+            padding: 1rem;
+            text-align: center;
+            font-size: 0.875rem;
+        }
+
+        .theme-switch-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 1rem;
+        }
+
+        .theme-switch {
+            display: inline-block;
+            height: 2rem;
+            position: relative;
+            width: 3.75rem;
+        }
+
+        .theme-switch input {
+            display: none;
+        }
+
+        .slider {
+            background-color: #ccc;
+            bottom: 0;
+            cursor: pointer;
+            left: 0;
+            position: absolute;
+            right: 0;
+            top: 0;
+            transition: .4s;
+        }
+
+        .slider:before {
+            background-color: #fff;
+            bottom: 0.25rem;
+            content: "";
+            height: 1.5rem;
+            left: 0.25rem;
+            position: absolute;
+            transition: .4s;
+            width: 1.5rem;
+        }
+
+        input:checked + .slider {
+            background-color: #2196F3;
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(1.75rem);
+        }
+
+        .slider.round {
+            border-radius: 2rem;
+        }
+
+        .slider.round:before {
+            border-radius: 50%;
+        }
+
+        em {
+            margin-left: 0.625rem;
+            font-size: 0.875rem;
+        }
+
+        @media (max-width: 48rem) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.25rem;
+            }
+
+            .container {
+                padding: 0 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Privacy Policy</h1>
+        <div class="theme-switch-wrapper">
+            <label class="theme-switch" for="checkbox">
+                <input type="checkbox" id="checkbox" />
+                <div class="slider round"></div>
+            </label>
+            <em>Dark Mode</em>
+        </div>
+    </header>
+    
+    <main class="container">
+        <section id="introduction">
+            <h2>Introduction</h2>
+            <p>Welcome to Echo Engine's Privacy Policy. We are committed to protecting your privacy and ensuring the security of any information we collect. This policy outlines our practices concerning data collection and usage.</p>
+        </section>
+
+        <section id="information-collected">
+            <h2>Information We Collect</h2>
+            <p>Echo Engine does not actively collect personal data. We may collect non-personal information such as browser type, device information, and usage statistics to improve our services and user experience.</p>
+        </section>
+
+        <section id="information-usage">
+            <h2>How We Use Your Information</h2>
+            <p>The non-personal information we collect is used solely for improving Echo Engine and enhancing user experience. We do not sell or share this data with third parties.</p>
+        </section>
+
+        <section id="third-party-sharing">
+            <h2>Third-Party Sharing</h2>
+            <p>We do not share any user data with third parties. Your privacy and the security of your information are our top priorities.</p>
+        </section>
+
+        <section id="permissions">
+            <h2>Permissions</h2>
+            <p>By using Echo Engine, you grant us permission to feature your games in the "Games made with Echo Engine" section. This helps showcase the capabilities of our engine and the creativity of our users.</p>
+        </section>
+
+        <section id="data-security">
+            <h2>Data Security</h2>
+            <p>We implement industry-standard security measures to protect your data. However, please note that no method of transmission over the internet or electronic storage is 100% secure.</p>
+        </section>
+
+        <section id="user-rights">
+            <h2>User Rights</h2>
+            <p>You have the right to access, correct, or delete any non-personal data we may have. If you wish to exercise these rights or have any questions, please contact us using the information provided below.</p>
+        </section>
+
+        <section id="contact">
+            <h2>Contact Information</h2>
+            <p>If you have any questions or concerns about our Privacy Policy, please contact us at <a href="mailto:privacy@echothedeveloper.com">privacy@echothedeveloper.com</a>.</p>
+        </section>
+    </main>
+
+    <footer>
+        <a href="https://engine.echothedeveloper.com">Back to Main Website</a>
+        <p>&copy; 2024 Echo Engine. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
+        const currentTheme = localStorage.getItem('theme');
+
+        if (currentTheme) {
+            document.documentElement.setAttribute('data-theme', currentTheme);
+          
+            if (currentTheme === 'dark') {
+                toggleSwitch.checked = true;
+            }
+        }
+
+        function switchTheme(e) {
+            if (e.target.checked) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+            }
+            else {
+                document.documentElement.setAttribute('data-theme', 'light');
+                localStorage.setItem('theme', 'light');
+            }    
+        }
+
+        toggleSwitch.addEventListener('change', switchTheme, false);
+    </script>
+</body>
+</html>
